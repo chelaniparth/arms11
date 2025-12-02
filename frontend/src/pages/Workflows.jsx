@@ -34,8 +34,11 @@ const Workflows = () => {
                 api.get('/workflows/'),
                 api.get('/workflows/volume?limit=20')
             ]);
-            setWorkflows(workflowsRes.data);
-            setVolumes(volumesRes.data);
+            setWorkflows(Array.isArray(workflowsRes.data) ? workflowsRes.data : []);
+            setVolumes(Array.isArray(volumesRes.data) ? volumesRes.data : []);
+
+            if (!Array.isArray(workflowsRes.data)) console.error("API Error: /workflows did not return an array", workflowsRes.data);
+            if (!Array.isArray(volumesRes.data)) console.error("API Error: /workflows/volume did not return an array", volumesRes.data);
         } catch (err) {
             setError("Failed to load data.");
             console.error(err);
