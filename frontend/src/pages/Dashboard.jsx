@@ -45,7 +45,13 @@ const Dashboard = () => {
         return <div className="p-8 text-center text-red-500">Failed to load dashboard data.</div>;
     }
 
-    const { my_stats, system_stats } = stats;
+    const { my_stats, system_stats } = stats || {};
+
+    console.log("Dashboard Stats:", stats);
+
+    if (!my_stats || !system_stats) {
+        return <div className="p-8 text-center text-amber-500">Incomplete dashboard data received.</div>;
+    }
     const isAdminOrManager = user?.role === 'admin' || user?.role === 'manager';
 
     return (
