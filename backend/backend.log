@@ -1,0 +1,294 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Lenovo\\.gemini\\antigravity\\scratch\\arms_workflow\\backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [18208] using StatReload
+C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\pydantic\_internal\_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [21220]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57508 - "POST /token HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'test_api_endpoints.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21220]
+C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\pydantic\_internal\_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [10856]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57433 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57436 - "POST /tasks/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57439 - "POST /tasks/3/pick HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "task_history" does not exist
+LINE 1: INSERT INTO task_history (task_id, field_name, old_value, ne...
+                    ^
+QUERY:  INSERT INTO task_history (task_id, field_name, old_value, new_value, action)
+        VALUES (NEW.task_id, 'status', OLD.status::TEXT, NEW.status::TEXT, 'status_changed')
+CONTEXT:  PL/pgSQL function arms_workflow.log_task_changes() line 5 at SQL statement
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 292, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\routers\tasks.py", line 165, in pick_task
+    db.flush() # Get ID
+    ^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 852, in _emit_update_statements
+    c = connection.execute(
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "task_history" does not exist
+LINE 1: INSERT INTO task_history (task_id, field_name, old_value, ne...
+                    ^
+QUERY:  INSERT INTO task_history (task_id, field_name, old_value, new_value, action)
+        VALUES (NEW.task_id, 'status', OLD.status::TEXT, NEW.status::TEXT, 'status_changed')
+CONTEXT:  PL/pgSQL function arms_workflow.log_task_changes() line 5 at SQL statement
+
+[SQL: UPDATE arms_workflow.tasks SET status=%(status)s, assigned_user_id=%(assigned_user_id)s::UUID, updated_at=now(), picked_at=now() WHERE arms_workflow.tasks.task_id = %(arms_workflow_tasks_task_id)s]
+[parameters: {'status': 'In Progress', 'assigned_user_id': UUID('b00855f8-be4d-4897-aaac-ce31ecf9876e'), 'arms_workflow_tasks_task_id': 3}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO:     127.0.0.1:57441 - "POST /tasks/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57446 - "PUT /tasks/4 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "task_history" does not exist
+LINE 1: INSERT INTO task_history (task_id, field_name, old_value, ne...
+                    ^
+QUERY:  INSERT INTO task_history (task_id, field_name, old_value, new_value, action)
+        VALUES (NEW.task_id, 'status', OLD.status::TEXT, NEW.status::TEXT, 'status_changed')
+CONTEXT:  PL/pgSQL function arms_workflow.log_task_changes() line 5 at SQL statement
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\fastapi\routing.py", line 292, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\routers\tasks.py", line 103, in update_task
+    db.commit()
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 912, in _emit_update_statements
+    c = connection.execute(
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Lenovo\.gemini\antigravity\scratch\arms_workflow\backend\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "task_history" does not exist
+LINE 1: INSERT INTO task_history (task_id, field_name, old_value, ne...
+                    ^
+QUERY:  INSERT INTO task_history (task_id, field_name, old_value, new_value, action)
+        VALUES (NEW.task_id, 'status', OLD.status::TEXT, NEW.status::TEXT, 'status_changed')
+CONTEXT:  PL/pgSQL function arms_workflow.log_task_changes() line 5 at SQL statement
+
+[SQL: UPDATE arms_workflow.tasks SET status=%(status)s, updated_at=now() WHERE arms_workflow.tasks.task_id = %(arms_workflow_tasks_task_id)s]
+[parameters: {'status': 'In Progress', 'arms_workflow_tasks_task_id': 4}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO:     127.0.0.1:59709 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59711 - "POST /tasks/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59713 - "POST /tasks/5/pick HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59718 - "POST /tasks/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49252 - "PUT /tasks/6 HTTP/1.1" 200 OK
