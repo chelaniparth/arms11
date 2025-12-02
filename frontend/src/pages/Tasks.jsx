@@ -61,8 +61,11 @@ const Tasks = () => {
                 api.get('/tasks'),
                 api.get('/users/')
             ]);
-            setTasks(tasksRes.data);
+            setTasks(Array.isArray(tasksRes.data) ? tasksRes.data : []);
             setUsers(usersRes.data);
+            if (!Array.isArray(tasksRes.data)) {
+                console.error("API Error: /tasks did not return an array", tasksRes.data);
+            }
         } catch (error) {
             console.error("Failed to fetch data", error);
         } finally {
